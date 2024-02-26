@@ -7,6 +7,7 @@ class SocialNetwork:
     def __new__(cls, name):
         if not cls._instance:
             cls._instance = super().__new__(cls)
+            print(f"The social network {name} was created!")
         return cls._instance
 
     def __init__(self, name):
@@ -47,5 +48,3 @@ class SocialNetwork:
                 print(f"{username} disconnected")
                 return True
         return False
-
-

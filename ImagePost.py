@@ -12,5 +12,10 @@ class ImagePost(Post):
         return f"{self.user.username} posted a picture\n"
 
     def display(self):
-        plt.show()
+        image1 = image.imread(self.image_path)
+        plt.imshow(image1)
+        plt.title('Loaded Image')
         print("Shows picture")
+        plt.axis("off")
+        plt.show()
+        ...

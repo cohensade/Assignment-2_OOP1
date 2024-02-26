@@ -16,7 +16,7 @@ class SalePost(Post):
             # Apply discount logic
             discount_amount = self.price * percent / 100
             self.price -= discount_amount
-            print(f"Discount on {self.user.username}'s product! The new price is: {self.price}")
+            print(f"Discount on {self.user.username} product! the new price is: {self.price}")
             return True
         else:
             print("Discount failed: Invalid password or already sold.")
@@ -36,5 +36,5 @@ class SalePost(Post):
                 f"pickup from: {self.location}\n")
         else:
             return (
-                f"{self.user.get_username()} posted a product for sale:\n  Sold! {self.description}, price: {self.price}, "
+                f"{self.user.get_username()} posted a product for sale:\nSold! {self.description}, price: {self.price}, "
                 f"pickup from: {self.location}\n")

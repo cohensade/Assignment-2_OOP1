@@ -1,7 +1,6 @@
 from ImagePost import ImagePost
 from Observables import Observables
 from Observer import Observer
-from Observer import Observer
 from SalePost import SalePost
 from TextPost import TextPost
 
@@ -18,7 +17,7 @@ class User(Observables, Observer):
         self.num_of_post = 0
 
     def __str__(self):
-        return f"User name: {self.username},Number of posts: {self.num_of_post}, Number of followers: {len(self.followers)}"
+        return f"User name: {self.username}, Number of posts: {self.num_of_post}, Number of followers: {len(self.followers)}"
 
     def get_username(self):
         return self.username
@@ -46,7 +45,7 @@ class User(Observables, Observer):
 
     def unfollow(self, other_user):
         self.stop_follow(other_user)
-        print(f"{self.username} unfollowing {other_user.username}")
+        print(f"{self.username} unfollowed {other_user.username}")
 
     def publish_post(self, post_type, *post_args):
         if self.logged_in:
@@ -54,14 +53,14 @@ class User(Observables, Observer):
             self.notify(f"{self.username} has a new post")
             if post_type == "Text":
                 if len(post_args) == 1:
-                    print(f"{self.username} published a post:\n{post_args[0]}\n")
+                    print(f"{self.username} published a post:\n\"{post_args[0]}\"\n")
                     new_post = TextPost(self, post_args[0])
                     return new_post
                 else:
                     print("Invalid arguments for Text post")
             elif post_type == "Image":
                 if len(post_args) == 1:
-                    print(f"{self.username} published a picture\n")
+                    print(f"{self.username} posted a picture\n")
                     new_post = ImagePost(self, post_args[0])
                     return new_post
                 else:
